@@ -17,8 +17,6 @@ const Quotes: React.FC<Props> = ({categories}) => {
 
   const quotesURL = id ? `/quotes.json?orderBy="category"&equalTo="${id}"` : "/quotes.json";
 
-  console.log(id);
-
   const fetchQuotes = useCallback(async () => {
     try {
       setLoading(true);
@@ -40,17 +38,24 @@ const Quotes: React.FC<Props> = ({categories}) => {
     void fetchQuotes();
   }, [fetchQuotes]);
 
+  const empty = (
+    <div>
+      <h3>It's empty! Add some quote in the section "Submit new quote"</h3>
+    </div>
+  );
 
   return (
     <div className="row mt-2">
       <div className="col-4">
         <Sidebar categories={categories}/>
       </div>
-      <div className="col-8">
-        {loading ? <Spinner/> : quotes.map(quote => (
-          <QuoteItem quote={quote} key={quote.id}/>
-        ))}
-      </div>
+      {quotes.length === 0 ? empty : (
+        <div className="col-8">
+          {loading ? <Spinner/> : quotes.map(quote => (
+            <QuoteItem quote={quote} key={quote.id}/>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

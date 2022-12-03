@@ -5,14 +5,14 @@ import Quotes from "./containers/Quotes/Quotes";
 import NewQuote from "./containers/NewQuote/NewQuote";
 import EditQuote from "./containers/EditQuote/EditQuote";
 import DeleteQuote from "./components/DeleteQuote/DeleteQuote";
-import './App.css';
 import {Categories} from "./types";
+import './App.css';
 
 
 function App() {
   const categories: Categories[] = [
     {title: "Star Wars", id: "star-wars"},
-    {title: "Motivational for programmer", id: "motivational"},
+    {title: "motivation for the programmer", id: "motivational"},
     {title: "Kdrama", id: "kdrama"},
     {title: "Gulzat Mamytbek", id: "gulzatMamytbek"},
     {title: "Arstan Alai", id: "arstanAlai"},
@@ -23,7 +23,7 @@ function App() {
     <header>
       <Navbar/>
     </header>
-      <main className="container-fluid">
+      <main className="container-fluid p-3">
         <Routes>
           <Route path="/" element={(
             <Quotes categories={categories}/>

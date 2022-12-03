@@ -49,6 +49,8 @@ const QuotesForm: React.FC<Props> = ({onSubmit, loading, existingQuote, categori
             <label htmlFor="author">Author</label>
             <input
               id="author" name="author" type="text"
+              required
+              placeholder="author's name"
               className="form-control"
               value={quote.author}
               onChange={onQuoteChange}
@@ -58,6 +60,8 @@ const QuotesForm: React.FC<Props> = ({onSubmit, loading, existingQuote, categori
             <label htmlFor="quote-text">Quote text</label>
             <textarea
               id="text" name="text"
+              required
+              placeholder="write some text..."
               className="form-control"
               value={quote.text}
               onChange={onQuoteChange}

@@ -8,10 +8,10 @@ interface Props {
 
 const Sidebar: React.FC<Props> = ({categories}) => {
   return (
-    <div>
+    <div className="border border-2 border-secondary p-3">
       <h4>Quotes category</h4>
       <ul className="list-group-nav p-0">
-        <NavLink  to={"/"} className="list-group-item nav-link p-2">All</NavLink>
+        <NavLink  to={"/"} className="list-group-item nav-link p-2 ">All</NavLink>
         {categories.map((category) => (
           <NavLink
             to={`/quotes/category/${category.id}`}
