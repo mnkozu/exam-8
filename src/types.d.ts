@@ -5,6 +5,8 @@ export interface Quote {
   category: string;
 }
 
-export interface QuoteApi {
+export type QuoteApi = Omit<Quote, 'id'>;
+
+export interface QuoteList {
   [id: string]: Quote;
 }

@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {Quote, QuoteApi} from "../../types";
+import {Quote, QuoteList} from "../../types";
 import axiosApi from "../../axiosApi";
 import Spinner from "../../components/Spinner/Spinner";
 import QuoteItem from "../../components/QuoteItem/QuoteItem";
@@ -11,7 +11,7 @@ const Quotes = () => {
   const fetchQuotes = useCallback(async () => {
     try {
       setLoading(true);
-      const quotesResponse = await axiosApi.get<QuoteApi>('quotes.json');
+      const quotesResponse = await axiosApi.get<QuoteList>('quotes.json');
 
       const quotes = Object.keys(quotesResponse.data).map(key => {
         const quote = quotesResponse.data[key];
