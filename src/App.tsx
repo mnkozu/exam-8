@@ -1,11 +1,31 @@
 import React from 'react';
+import Navbar from "./components/Navbar/Navbar";
+import {Route, Routes} from "react-router-dom";
+import Quotes from "./containers/Quotes/Quotes";
+import NewQuote from "./containers/NewQuote/NewQuote";
 import './App.css';
+
 
 function App() {
   return (
-    <div className="App">
-
-    </div>
+    <>
+    <header>
+      <Navbar/>
+    </header>
+      <main className="container-fluid">
+        <Routes>
+          <Route path="/" element={(
+            <Quotes/>
+          )}/>
+          <Route path="/add-quote" element={(
+            <NewQuote/>
+          )}/>
+          <Route path="*" element={(
+            <h1>Not found!</h1>
+          )}/>
+        </Routes>
+      </main>
+    </>
   );
 }
 
