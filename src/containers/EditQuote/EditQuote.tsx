@@ -2,9 +2,13 @@ import React, {useCallback, useEffect, useState} from 'react';
 import {useNavigate, useParams} from "react-router-dom";
 import QuotesForm from "../../components/QuotesForm/QuotesForm";
 import axiosApi from "../../axiosApi";
-import {QuoteApi} from "../../types";
+import {Categories, QuoteApi} from "../../types";
 
-const EditQuote = () => {
+interface Props {
+  categories: Categories[];
+}
+
+const EditQuote: React.FC<Props> = ({categories}) => {
   const {id} = useParams();
   const navigate = useNavigate();
   const [quote, setQuote] = useState<QuoteApi | null>(null);
@@ -38,7 +42,7 @@ const EditQuote = () => {
     <div className="row mt-2">
       <div className="col">
         {quote && (
-          <QuotesForm onSubmit={updateQuote} existingQuote={quote} loading={loading}/>
+          <QuotesForm onSubmit={updateQuote} existingQuote={quote} loading={loading} categories={categories}/>
         )}
       </div>
     </div>

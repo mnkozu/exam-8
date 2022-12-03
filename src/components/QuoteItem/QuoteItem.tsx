@@ -8,7 +8,7 @@ interface Props {
 
 const QuoteItem: React.FC<Props> = ({quote}) => {
   return (
-    <div className="card">
+    <div className="card mb-2">
       <div className="card-body">
         <p className="card-text">{quote.text}</p>
         <p className="text-secondary">- {quote.author}</p>

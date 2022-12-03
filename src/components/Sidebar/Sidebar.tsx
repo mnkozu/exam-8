@@ -1,12 +1,26 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
+import {Categories} from "../../types";
 
-const Sidebar = () => {
+interface Props {
+  categories: Categories[];
+}
+
+const Sidebar: React.FC<Props> = ({categories}) => {
   return (
     <div>
       <h4>Quotes category</h4>
-      <ul className="list-group-nav">
-        <Link  to={"/quotes"} className="list-group-item nav-link">All</Link>
+      <ul className="list-group-nav p-0">
+        <NavLink  to={"/"} className="list-group-item nav-link p-2">All</NavLink>
+        {categories.map((category) => (
+          <NavLink
+            to={`/quotes/category/${category.id}`}
+            className="list-group-item nav-link p-2"
+            key={category.id}
+          >
+            {category.title}
+          </NavLink>
+        ))}
       </ul>
     </div>
   );

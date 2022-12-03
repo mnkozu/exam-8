@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
-import {QuoteApi} from "../../types";
+import {Categories, QuoteApi} from "../../types";
 import Spinner from "../Spinner/Spinner";
 
 interface Props {
   onSubmit: (post: QuoteApi) => void;
   loading: boolean;
   existingQuote?: QuoteApi;
+  categories: Categories[];
 }
 
-const QuotesForm: React.FC<Props> = ({onSubmit, loading, existingQuote}) => {
+const QuotesForm: React.FC<Props> = ({onSubmit, loading, existingQuote, categories}) => {
   const [quote, setQuote] = useState(existingQuote ? existingQuote : {
     category: '',
     author: '',
@@ -40,11 +41,9 @@ const QuotesForm: React.FC<Props> = ({onSubmit, loading, existingQuote}) => {
             onChange={onQuoteChange}
           >
             <option disabled value="">Select category</option>
-            <option>Star wars</option>
-            <option>Famous people</option>
-            <option>Saying</option>
-            <option>Humour</option>
-            <option>Motivational</option>
+            {categories.map((category) => (
+             <option key={category.id}>{category.id}</option>
+            ))}
           </select>
           <div className="form-group">
             <label htmlFor="author">Author</label>
