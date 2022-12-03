@@ -4,11 +4,12 @@ import Spinner from "../Spinner/Spinner";
 
 interface Props {
   onSubmit: (post: QuoteApi) => void;
-  loading?: boolean;
+  loading: boolean;
+  existingQuote?: QuoteApi;
 }
 
-const QuotesForm: React.FC<Props> = ({onSubmit, loading}) => {
-  const [quote, setQuote] = useState({
+const QuotesForm: React.FC<Props> = ({onSubmit, loading, existingQuote}) => {
+  const [quote, setQuote] = useState(existingQuote ? existingQuote : {
     category: '',
     author: '',
     text: '',
@@ -29,7 +30,7 @@ const QuotesForm: React.FC<Props> = ({onSubmit, loading}) => {
     <>
       {loading ? <Spinner/> : (
         <form onSubmit={onFormSubmit}>
-          <h4>Submit new quote</h4>
+          <h4>{existingQuote ? 'Edit a quote' : 'Submit new quote'}</h4>
           <select
             className="form-select"
             aria-label="Default select example"
@@ -63,7 +64,7 @@ const QuotesForm: React.FC<Props> = ({onSubmit, loading}) => {
               onChange={onQuoteChange}
             />
           </div>
-          <button type="submit" className="btn btn-primary">Save</button>
+          <button type="submit" className="btn btn-primary">{existingQuote ? 'Save changes' : 'Post'}</button>
         </form>
       )}
     </>

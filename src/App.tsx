@@ -4,6 +4,7 @@ import {Route, Routes} from "react-router-dom";
 import Quotes from "./containers/Quotes/Quotes";
 import NewQuote from "./containers/NewQuote/NewQuote";
 import './App.css';
+import EditQuote from "./containers/EditQuote/EditQuote";
 
 
 function App() {
@@ -19,6 +20,9 @@ function App() {
           )}/>
           <Route path="/add-quote" element={(
             <NewQuote/>
+          )}/>
+          <Route path="/quotes/edit/:id" element={(
+            <EditQuote/>
           )}/>
           <Route path="*" element={(
             <h1>Not found!</h1>

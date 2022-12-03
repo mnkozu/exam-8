@@ -1,5 +1,6 @@
 import React from 'react';
 import {Quote} from "../../types";
+import {Link} from "react-router-dom";
 
 interface Props {
   quote: Quote;
@@ -13,8 +14,8 @@ const QuoteItem: React.FC<Props> = ({quote}) => {
         <p className="text-secondary">- {quote.author}</p>
       </div>
       <div className="card-footer">
-        <button className="btn btn-primary">Edit</button>
-        <button className="btn btn-danger">Delete</button>
+        <Link to={"/quotes/edit/" + quote.id} className="btn btn-primary m-1">Edit</Link>
+        <Link to={"/quotes/" + quote.id} className="btn btn-danger m-1">Delete</Link>
       </div>
     </div>
   );
