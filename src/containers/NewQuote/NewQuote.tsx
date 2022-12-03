@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import QuotesForm from "../../components/QuotesForm/QuotesForm";
 import {useNavigate} from "react-router-dom";
-import {QuoteApi} from "../../types";
 import axiosApi from "../../axiosApi";
+import QuotesForm from "../../components/QuotesForm/QuotesForm";
+import {QuoteApi} from "../../types";
 
 const NewQuote = () => {
   const navigate = useNavigate();

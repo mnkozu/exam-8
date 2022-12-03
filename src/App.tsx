@@ -3,8 +3,9 @@ import Navbar from "./components/Navbar/Navbar";
 import {Route, Routes} from "react-router-dom";
 import Quotes from "./containers/Quotes/Quotes";
 import NewQuote from "./containers/NewQuote/NewQuote";
-import './App.css';
 import EditQuote from "./containers/EditQuote/EditQuote";
+import DeleteQuote from "./components/DeleteQuote/DeleteQuote";
+import './App.css';
 
 
 function App() {
@@ -23,6 +24,9 @@ function App() {
           )}/>
           <Route path="/quotes/edit/:id" element={(
             <EditQuote/>
+          )}/>
+          <Route path="/quotes/delete/:id" element={(
+            <DeleteQuote/>
           )}/>
           <Route path="*" element={(
             <h1>Not found!</h1>

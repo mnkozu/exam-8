@@ -15,7 +15,7 @@ const QuoteItem: React.FC<Props> = ({quote}) => {
       </div>
       <div className="card-footer">
         <Link to={"/quotes/edit/" + quote.id} className="btn btn-primary m-1">Edit</Link>
-        <Link to={"/quotes/" + quote.id} className="btn btn-danger m-1">Delete</Link>
+        <Link to={"/quotes/delete/" + quote.id} className="btn btn-danger m-1">Delete</Link>
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {Quote, QuoteList} from "../../types";
 import axiosApi from "../../axiosApi";
-import Spinner from "../../components/Spinner/Spinner";
 import QuoteItem from "../../components/QuoteItem/QuoteItem";
+import Spinner from "../../components/Spinner/Spinner";
+import {Quote, QuoteList} from "../../types";
 
 const Quotes = () => {
   const [quotes, setQuotes] = useState<Quote[]>([]);
@@ -28,6 +28,7 @@ const Quotes = () => {
   useEffect(() => {
     void fetchQuotes();
   }, [fetchQuotes]);
+
 
   return (
     <div className="row mt-2">

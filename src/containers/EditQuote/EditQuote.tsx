@@ -1,8 +1,8 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {useNavigate, useParams} from "react-router-dom";
-import {QuoteApi} from "../../types";
-import axiosApi from "../../axiosApi";
 import QuotesForm from "../../components/QuotesForm/QuotesForm";
+import axiosApi from "../../axiosApi";
+import {QuoteApi} from "../../types";
 
 const EditQuote = () => {
   const {id} = useParams();
